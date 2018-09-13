@@ -33,8 +33,8 @@ pipeline {
                             sh '''
                                 #!/bin/bash
                                 set -e
-                                python3 -m pydocstyle --ignore=D400 .
-                                python3 -m pydocstyle */*.py
+                                pydocstyle --ignore=D400 .
+                                pydocstyle */*.py
                             '''
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
                         } catch (Exception e) {

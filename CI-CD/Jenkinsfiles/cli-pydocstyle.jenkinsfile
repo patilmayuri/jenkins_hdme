@@ -30,7 +30,7 @@ pipeline {
                         println "\u001B[34m\u001B[1mCode Style Linting\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
-                            bat'''
+                           powershell'''
                             ls
                              pycodestyle .
                             '''

@@ -30,16 +30,17 @@ pipeline {
                         println "\u001B[34m\u001B[1mCode Style Linting\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
-                         def stdout = powershell(returnStdout: true, script: '''
-                         pycodestyle .
-                         ''')
+                            def stdout = powershell(returnStdout: true, script: '''
+                                pycodestyle .
+                            ''')
                             println stdout
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
                         } catch (Exception e) {
                             println "\u001B[31m********************************************************\u001B[0m"
                             println "\u001B[31mFAILED: Code style linting failed. Please fix the issues\u001B[0m"
                             println "\u001B[31m********************************************************\u001B[0m"
-                            sh 'exit 1'
+                           
+                            powershell(returnStdout: true, script: '''exit 1''')
                         }
                     }   
                 }

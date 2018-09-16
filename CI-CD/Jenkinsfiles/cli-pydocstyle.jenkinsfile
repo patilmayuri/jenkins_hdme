@@ -17,9 +17,7 @@ def setJobProperties() {
 
 pipeline {
     agent {
-        node {
-            label 'master'
-        }
+       agent { label 'windows' }
     }
     stages {
         stage ('Code style linting') {

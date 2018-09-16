@@ -31,7 +31,7 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
-                                pycodestyle .
+                               Write-Output pycodestyle .
                             '''
                             println stdout
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"

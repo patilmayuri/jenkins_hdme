@@ -30,12 +30,7 @@ agent {
                         println "\u001B[34m\u001B[1mDoc Style Linting\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
-                            sh '''
-                                #!/bin/bash
-                                set -e
-                                pydocstyle --ignore=D400 .
-                                pydocstyle */*.py
-                            '''
+                            
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
                         } catch (Exception e) {
                             println "\u001B[31m********************************************************\u001B[0m"

@@ -32,7 +32,8 @@ pipeline {
                         try {
                            powershell'''
                             ls
-                             pycodestyle .
+                            npm install -g yarn
+                            yarn --version
                             '''
                             
             

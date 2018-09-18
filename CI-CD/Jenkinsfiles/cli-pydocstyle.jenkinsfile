@@ -37,7 +37,7 @@ pipeline {
                             '''
                            powershell'''
                             cd env:
-                            ls
+                            ls path
                            yarn --version'''
                            bat'''yarn --version'''
                           

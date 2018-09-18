@@ -33,6 +33,8 @@ pipeline {
                            powershell'''
                             npm install yarn
                             ls
+                            npm --version
+                            node --version
                             yarn --version
     
                             '''

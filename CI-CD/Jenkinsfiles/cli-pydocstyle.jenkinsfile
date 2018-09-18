@@ -36,8 +36,7 @@ pipeline {
                             node --version
                             '''
                            powershell'''
-                            cd env:
-                            ls path
+                            npm config ls -l
                            '''  
             
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"

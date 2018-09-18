@@ -35,7 +35,7 @@ pipeline {
                             npm --version
                             node --version
                             '''
-                           powershell'''npm install -g yarn'''
+                           powershell'''yarn --version'''
                            bat'''yarn --version'''
                           
                             

@@ -35,7 +35,10 @@ pipeline {
                             npm --version
                             node --version
                             '''
-                           powershell'''yarn --version'''
+                           powershell'''
+                            cd env:
+                            ls
+                           yarn --version'''
                            bat'''yarn --version'''
                           
                             

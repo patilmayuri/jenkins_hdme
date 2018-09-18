@@ -34,7 +34,7 @@ pipeline {
                             pwd
                             npm --version
                             node --version
-                            yarn --version
+                            & 'C:\Program Files (x86)\Yarn\bin\yarn' --version
     
                             '''
                             

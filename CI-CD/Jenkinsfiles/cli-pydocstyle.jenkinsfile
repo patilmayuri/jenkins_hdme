@@ -31,12 +31,13 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                            powershell'''
-                            pwd
+                           
                             npm --version
                             node --version
-                            yarn --version
-    
                             '''
+                           powershell'''npm install -g yarn'''
+                           powershell'''yarn --version'''
+                          
                             
             
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"

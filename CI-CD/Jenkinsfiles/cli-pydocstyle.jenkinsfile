@@ -38,10 +38,7 @@ pipeline {
                            powershell'''
                             cd env:
                             ls path
-                           yarn --version'''
-                           bat'''yarn --version'''
-                          
-                            
+                           yarn --version'''  
             
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
                         } catch (Exception e) {

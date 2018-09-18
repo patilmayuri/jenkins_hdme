@@ -37,7 +37,7 @@ pipeline {
                             '''
                            powershell'''
                             npm config ls -l
-                            yarn --version
+                            $Env:Path
                            '''  
             
                             println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"

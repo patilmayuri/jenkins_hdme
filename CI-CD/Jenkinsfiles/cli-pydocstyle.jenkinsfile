@@ -32,7 +32,7 @@ pipeline {
                         try {
                            powershell'''
                             npm install -g yarn
-                            
+                            yarn --version
                             '''
                             
             

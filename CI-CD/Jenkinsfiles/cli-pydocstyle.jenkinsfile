@@ -31,9 +31,8 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                            powershell'''
-                            ls
                             npm install -g yarn
-                            yarn --version
+                            
                             '''
                             
             

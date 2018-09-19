@@ -22,7 +22,7 @@ pipeline {
         }
     }
     stages {
-        stage ('hv-dem-avm-ui building') {
+        stage ('hv-dem-avm-ui building1') {
             steps {
                 script {
                     ansiColor('xterm') {

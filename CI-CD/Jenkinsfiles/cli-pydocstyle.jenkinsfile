@@ -22,6 +22,7 @@ pipeline {
         }
     }
     stages {
+
         stage ('yarn install') {
             steps {
                 script {
@@ -45,6 +46,7 @@ pipeline {
             }
         }
         stage ('yarn build') {
+
             steps {
                 script {
                     ansiColor('xterm') {

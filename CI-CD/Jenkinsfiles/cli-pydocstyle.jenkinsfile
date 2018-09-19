@@ -22,31 +22,44 @@ pipeline {
         }
     }
     stages {
-        stage ('Code style linting') {
+        stage ('hv-dem-avm-ui building') {
             steps {
                 script {
                     ansiColor('xterm') {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        println "\u001B[34m\u001B[1mCode Style Linting\u001B[0m"
+                        println "\u001B[34m\u001B[1mhv-dem-avm-ui yarn installing\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
-                           powershell'''
-                           
-                            npm --version
-                            node --version
+                            powershell'''
+                                yarn --version
                             '''
-                           powershell'''
-                            npm config ls -l
-                            $Env:Path
-                            yarn -v
-                           '''  
-            
-                            println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
+                            println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {
                             println "\u001B[31m********************************************************\u001B[0m"
-                            println "\u001B[31mFAILED: Code style linting failed. Please fix the issues\u001B[0m"
+                            println "\u001B[31mFAILED: hv-dem-avm-ui yarn install failed. Please fix the issues\u001B[0m"
                             println "\u001B[31m********************************************************\u001B[0m"
-                           
+                            powershell(returnStdout: true, script: '''exit 1''')
+                        }
+                    }   
+                }
+            }
+        }
+        stage ('hv-dem-avm-ui building') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        println "\u001B[34m\u001B[1m******************\u001B[0m"
+                        println "\u001B[34m\u001B[1mhv-dem-avm-ui yarn building\u001B[0m"
+                        println "\u001B[34m\u001B[1m******************\u001B[0m"
+                        try {
+                            powershell''''
+                                eslint --version
+                            '''
+                            println "\u001B[32mCode adheres to build\u001B[0m"
+                        } catch (Exception e) {
+                            println "\u001B[31m********************************************************\u001B[0m"
+                            println "\u001B[31mFAILED: UI yarn build failed. Please fix the issues\u001B[0m"
+                            println "\u001B[31m********************************************************\u001B[0m"
                             powershell(returnStdout: true, script: '''exit 1''')
                         }
                     }   
@@ -54,5 +67,9 @@ pipeline {
             }
         }
     }
-    
+    post {
+        always {
+            deleteDir()
+        }
+    }
 }

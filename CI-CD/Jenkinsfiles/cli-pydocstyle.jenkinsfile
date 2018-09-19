@@ -3,6 +3,8 @@
 def setJobProperties() {
   properties([
     [
+      
+      
       $class: 'BuildDiscarderProperty',
       strategy: [
         $class: 'BuildRotator',

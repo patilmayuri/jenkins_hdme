@@ -3,6 +3,8 @@
 def setJobProperties() {
   properties([
     [
+      
+      
       $class: 'BuildDiscarderProperty',
       strategy: [
         $class: 'BuildRotator',
@@ -22,7 +24,8 @@ pipeline {
         }
     }
     stages {
-        stage ('hv-dem-avm-ui building') {
+
+        stage ('yarn install') {
             steps {
                 script {
                     ansiColor('xterm') {
@@ -44,7 +47,8 @@ pipeline {
                 }
             }
         }
-        stage ('hv-dem-avm-ui building') {
+        stage ('yarn build') {
+
             steps {
                 script {
                     ansiColor('xterm') {

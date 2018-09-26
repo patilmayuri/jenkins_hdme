@@ -31,7 +31,7 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
-                                yarn --version
+                                 mvn clean
                             '''
                             println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {

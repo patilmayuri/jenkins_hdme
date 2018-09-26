@@ -22,16 +22,16 @@ pipeline {
         }
     }
     stages {
-        stage ('hv-dem-avm-ui building1') {
+        stage ('yarn install') {
             steps {
                 script {
                     ansiColor('xterm') {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        println "\u001B[34m\u001B[1mhv-dem-avm-ui yarn installing\u001B[0m"
+                        println "\u001B[34m\u001B[1myarn install\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
-                                 mvn clean
+                                mvn clean
                             '''
                             println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {
@@ -44,18 +44,18 @@ pipeline {
                 }
             }
         }
-        stage ('hv-dem-avm-ui building') {
+        stage ('yarn build') {
             steps {
                 script {
                     ansiColor('xterm') {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        println "\u001B[34m\u001B[1mhv-dem-avm-ui yarn building\u001B[0m"
+                        println "\u001B[34m\u001B[1myarn build\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
-                            powershell''''
-                                eslint --version
+                            powershell'''
+                                yarn build
                             '''
-                            println "\u001B[32mCode adheres to build\u001B[0m"
+                            println "\u001B[32mCode adheres to test\u001B[0m"
                         } catch (Exception e) {
                             println "\u001B[31m********************************************************\u001B[0m"
                             println "\u001B[31mFAILED: UI yarn build failed. Please fix the issues\u001B[0m"

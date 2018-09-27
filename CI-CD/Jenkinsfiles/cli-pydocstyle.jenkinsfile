@@ -22,45 +22,24 @@ pipeline {
         }
     }
     stages {
-        stage ('yarn install') {
+        stage ('ingest-api build') {
             steps {
                 script {
                     ansiColor('xterm') {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        println "\u001B[34m\u001B[1myarn install\u001B[0m"
+                        println "\u001B[34m\u001B[1mhingest-api building\u001B[0m"
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
                                 $ENV:Path
-                                msbuild --version
+                                msbuild --help
                             '''
                             println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {
                             println "\u001B[31m********************************************************\u001B[0m"
-                            println "\u001B[31mFAILED: hv-dem-avm-ui yarn install failed. Please fix the issues\u001B[0m"
+                            println "\u001B[31mFAILED: ingest-api build failed. Please fix the issues\u001B[0m"
                             println "\u001B[31m********************************************************\u001B[0m"
-                            powershell(returnStdout: true, script: '''exit 1''')
-                        }
-                    }   
-                }
-            }
-        }
-        stage ('yarn build') {
-            steps {
-                script {
-                    ansiColor('xterm') {
-                        println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        println "\u001B[34m\u001B[1myarn build\u001B[0m"
-                        println "\u001B[34m\u001B[1m******************\u001B[0m"
-                        try {
-                            powershell'''
-                                mvn build
-                            '''
-                            println "\u001B[32mCode adheres to test\u001B[0m"
-                        } catch (Exception e) {
-                            println "\u001B[31m********************************************************\u001B[0m"
-                            println "\u001B[31mFAILED: UI yarn build failed. Please fix the issues\u001B[0m"
-                            println "\u001B[31m********************************************************\u001B[0m"
+                           
                             powershell(returnStdout: true, script: '''exit 1''')
                         }
                     }   

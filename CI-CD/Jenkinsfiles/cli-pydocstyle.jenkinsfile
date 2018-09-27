@@ -31,7 +31,8 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
-                                mvn clean
+                                $ENV:Path
+                                msbuild --version
                             '''
                             println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {

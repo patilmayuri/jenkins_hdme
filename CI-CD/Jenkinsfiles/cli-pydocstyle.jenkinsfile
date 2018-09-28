@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 
+
 def setJobProperties() {
   properties([
     [
@@ -31,6 +32,8 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
+                                echo "${DEPLOY_ENV}"
+                                "${DEPLOY_ENV}"
                                 $ENV:Path
                                 msbuild --version
                                 

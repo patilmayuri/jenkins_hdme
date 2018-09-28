@@ -33,7 +33,8 @@ pipeline {
                             powershell'''
                                 echo ${DEPLOY_ENV}
                                 $ENV:Path
-                                msbuild --help
+                                msbuild --version
+                                
                             '''
                             println "\u001B[32mCode adheres to build\u001B[0m"
                         } catch (Exception e) {

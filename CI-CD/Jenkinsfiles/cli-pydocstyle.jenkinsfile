@@ -33,7 +33,7 @@ pipeline {
                         try {
                             powershell'''
                                 echo "${DEPLOY_ENV}"
-                                "${DEPLOY_ENV}"
+                                ${DEPLOY_ENV}
                                 $ENV:Path
                                 
                                 

@@ -32,8 +32,8 @@ pipeline {
                         println "\u001B[34m\u001B[1m******************\u001B[0m"
                         try {
                             powershell'''
-                                echo "${DEPLOY_ENV}"
-                                ${DEPLOY_ENV}
+                                Write-Host "${DEPLOY_ENV}"
+                                Write-Host ${DEPLOY_ENV}
                                 $ENV:Path
                                 
                                 

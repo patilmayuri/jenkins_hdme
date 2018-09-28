@@ -34,7 +34,7 @@ pipeline {
                             powershell'''
                                 Write-Host "${DEPLOY_ENV}"
                                 Write-Host "*****************"
-                                Write-Host $DEPLOY_ENV
+                                Write-Host $ENV:DEPLOY_ENV
                                 Write-Host ${DEPLOY_ENV}
                                 $ENV:Path
                                 
